@@ -73,7 +73,7 @@
     "duration": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "conference_address": {
