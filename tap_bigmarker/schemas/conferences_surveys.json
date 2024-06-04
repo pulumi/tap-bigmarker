@@ -10,6 +10,12 @@
         "string"
       ]
     },
+    "conference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "answer_type": {
       "type": [
         "null",

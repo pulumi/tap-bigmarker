@@ -1,6 +1,6 @@
 {
   "type": [
-    "null",
+    "null", 
     "object"
   ],
   "properties": {
@@ -12,7 +12,7 @@
     },
     "bmid": {
       "type": [
-         "null",
+        "null",
         "string"
       ]
     },
@@ -22,9 +22,15 @@
         "string"
       ]
     },
+    "start_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "email": {
       "type": [
-         "null",
+        "null",
         "string"
       ]
     },
@@ -83,8 +89,8 @@
           },
           "source_from": {
             "type": [
-               "null",
-        "string"
+              "null",
+              "string"
             ]
           },
           "created_at": {
@@ -102,9 +108,21 @@
         }
       }
     },
+    "handouts": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
     "edited_in_room_display_name": {
       "type": [
-         "null",
+        "null",
         "string"
       ]
     },
@@ -126,15 +144,121 @@
         "string"
       ]
     },
+    "custom_fields": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "coupon_used": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "survey_results": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ]
+      }
+    },
+    "view_handout": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "download_handout": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "source_from": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
     "entered_at": {
       "type": [
-         "null",
+        "null",
         "string"
       ]
     },
     "leaved_at": {
       "type": [
-         "null",
+        "null",
         "string"
       ]
     },
@@ -179,6 +303,32 @@
         "null",
         "integer"
       ]
+    },
+    "polls": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "answer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
     },
     "attendance_monitor": {
       "type": [

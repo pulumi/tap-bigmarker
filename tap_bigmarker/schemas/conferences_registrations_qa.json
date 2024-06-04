@@ -1,0 +1,96 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+    "properties": {
+      "bmid": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "first_name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "last_name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "email": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "q_and_a": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "sendtime": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "responses": {
+        "type": [
+          "null",
+          "array"
+        ],
+        "items": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "bmid": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "first_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "q_and_a": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "sendtime": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+
+      }
+    }
+  }
+

@@ -109,13 +109,13 @@
     "chats": {
       "type": [
          "null",
-        "string"
+        "number"
       ]
     },
     "qa": {
       "type": [
          "null",
-        "string"
+        "number"
       ]
     },
     "polls": {

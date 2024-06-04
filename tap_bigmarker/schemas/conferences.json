@@ -82,6 +82,12 @@
         "string"
       ]
     },
+    "banner_filter_percentage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "custom_event_id": {
       "type": [
          "null",
@@ -95,6 +101,12 @@
       ]
     },
     "webcast_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "presenter_exit_url": {
       "type": [
         "null",
         "string"
@@ -174,6 +186,12 @@
         }
       }
     },
+    "time_zone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "privacy": {
       "type": [
         "null",
@@ -246,10 +264,22 @@
         "boolean"
       ]
     },
+    "recording_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "registration_required_to_view_recording": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "recording_iframe": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "who_can_watch_recording": {
@@ -264,11 +294,35 @@
         "boolean"
       ]
     },
+    "background_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "room_logo": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "fb_open_graph_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "agenda_topics": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
     },
     "preload_files": {
       "type": [
@@ -395,6 +449,118 @@
           }
         }
       }
+    },
+    "tags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "polls": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "club_profile_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "selection_method": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "choices": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "choice": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "auto_publish_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "auto_unpublish_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_publish_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_unpublish_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_recording_published": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
   }
 }
