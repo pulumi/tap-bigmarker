@@ -58,6 +58,7 @@ class ConferencesStream(BigMarkerStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "conferences.json"
+    per_page = 500
 
     def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
         """Return a context dictionary for child streams."""
@@ -145,6 +146,7 @@ class ConferencesAttendeesStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_attendees.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
 
 class ConferencesRegistrantsStream(BigMarkerStream):
     name = "conferences_registrants"
@@ -155,6 +157,7 @@ class ConferencesRegistrantsStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_registrants.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
 
 class ConferencesRegistrationsLiveStream(BigMarkerStream):
     name = "conferences_registrations_live"
@@ -166,6 +169,7 @@ class ConferencesRegistrationsLiveStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_registrants_live.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
 
 class ConferencesAttendeesLiveStream(BigMarkerStream):
     name = "conferences_attendees_live"
@@ -177,6 +181,7 @@ class ConferencesAttendeesLiveStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_attendees_live.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
 
 
 class ConferencesRegistrationsNoShowsStream(BigMarkerStream):
@@ -189,7 +194,8 @@ class ConferencesRegistrationsNoShowsStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_registrations_no_shows.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
-
+    per_page = 500
+    
 
 class ConferencesRegistrationsQaStream(BigMarkerStream):
     name = "conferences_registrations_qa"
@@ -201,6 +207,7 @@ class ConferencesRegistrationsQaStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_registrations_qa.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
 
 
 class ConferencesAttendeesOnDemandStream(BigMarkerStream):
@@ -213,3 +220,4 @@ class ConferencesAttendeesOnDemandStream(BigMarkerStream):
     schema_filepath = SCHEMAS_DIR / "conferences_attendees_on_demand.json"
     parent_stream_type = ConferencesStream
     ignore_parent_replication_keys = True
+    per_page = 500
