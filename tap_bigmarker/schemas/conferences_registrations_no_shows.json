@@ -34,6 +34,12 @@
         "string"
       ]
     },
+    "conference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "coupon": {
       "type": [
         "null",
@@ -179,6 +185,21 @@
         "null",
         "string"
       ]
+    },
+    "live_duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_fields": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "null", 
+          "string"
+        ]
+      }
     }
   }
 }

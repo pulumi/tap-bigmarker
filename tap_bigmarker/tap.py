@@ -16,9 +16,11 @@ from tap_bigmarker.streams import (
     ConferencesSurveysStream,
     ConferencesPresentersStream,
     ConferencesRegistrantsStream,
+    ConferencesRegistrationsLiveStream,
     ConferencesAttendeesLiveStream,
     ConferencesAttendeesOnDemandStream,
-    ConferencesRegistrationsNoShowsStream
+    ConferencesRegistrationsNoShowsStream,
+    ConferencesRegistrationsQaStream
 )
 
 STREAM_TYPES = [
@@ -31,9 +33,11 @@ STREAM_TYPES = [
     ConferencesPresentersStream,
     ConferencesAttendeesStream,
     ConferencesRegistrantsStream,
+    ConferencesRegistrationsLiveStream,
     ConferencesAttendeesLiveStream,
     ConferencesAttendeesOnDemandStream,
-    ConferencesRegistrationsNoShowsStream
+    ConferencesRegistrationsNoShowsStream,
+    ConferencesRegistrationsQaStream
 ]
 
 class TapBigMarker(Tap):

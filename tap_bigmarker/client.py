@@ -69,7 +69,7 @@ class BigMarkerStream(RESTStream):
         len_path = self.records_jsonpath.replace("[*]", "") + ".`len`"
 
         all_matches = extract_jsonpath(len_path, response.json())
-        len = next(iter(all_matches), None)
+        len = next(iter(all_matches), 0)
 
         if len > 0:
             return int(previous_token or "1") + 1

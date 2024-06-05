@@ -76,6 +76,12 @@
         "string"
       ]
     },
+    "coupon_used": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "country": {
       "type": [
         "null",
@@ -87,6 +93,34 @@
         "null",
         "string"
       ]
+    },
+      "start_time": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "earned_certificate": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "qualified_for_certificate": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      
+    },
+    "custom_fields": {
+      "type": "array",
+      "additionalProperties": {
+        "type": [
+          "null", 
+          "string"
+        ]
+      }
     }
   }
 }
