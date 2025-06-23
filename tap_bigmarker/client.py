@@ -13,6 +13,8 @@ from memoization import cached
 from singer_sdk.authenticators import APIKeyAuthenticator
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
+from singer_sdk.exceptions import FatalAPIError, RetriableAPIError
+from urllib.parse import parse_qs, parse_qsl, urlparse
 
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
@@ -28,6 +30,7 @@ class BigMarkerStream(RESTStream):
     has_pagination = True
     backoff_max_tries = 9999
     _LOG_REQUEST_METRIC_URLS = True
+    tolerated_http_errors = [401]
 
     @property
     def url_base(self) -> str:
@@ -91,7 +94,60 @@ class BigMarkerStream(RESTStream):
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
+        if response.status_code in self.tolerated_http_errors:
+            return []
         yield from extract_jsonpath(self.records_jsonpath, input=response.json())
+
+    def validate_response(self, response: requests.Response) -> None:
+        """Validate HTTP response.
+
+        Checks for error status codes and wether they are fatal or retriable.
+
+        In case an error is deemed transient and can be safely retried, then this
+        method should raise an :class:`singer_sdk.exceptions.RetriableAPIError`.
+        By default this applies to 5xx error codes, along with values set in:
+        :attr:`~singer_sdk.RESTStream.extra_retry_statuses`
+
+        In case an error is unrecoverable raises a
+        :class:`singer_sdk.exceptions.FatalAPIError`. By default, this applies to
+        4xx errors, excluding values found in:
+        :attr:`~singer_sdk.RESTStream.extra_retry_statuses`
+
+        Tap developers are encouraged to override this method if their APIs use HTTP
+        status codes in non-conventional ways, or if they communicate errors
+        differently (e.g. in the response body).
+
+        .. image:: ../images/200.png
+
+        Args:
+            response: A `requests.Response`_ object.
+
+        Raises:
+            FatalAPIError: If the request is not retriable.
+            RetriableAPIError: If the request is retriable.
+
+        .. _requests.Response:
+            https://docs.python-requests.org/en/latest/api/#requests.Response
+        """
+        if response.status_code in self.tolerated_http_errors:
+            full_path = urlparse(response.url).path
+            query = urlparse(response.url).query
+            msg = (
+                f"{response.status_code} Tolerated Status Code "
+                f"(Reason: {response.reason}) for path: {full_path}"
+                f"Query: {query}"
+            )
+            self.logger.warn(msg)
+            return
+        if (
+            response.status_code in self.extra_retry_statuses
+            or 500 <= response.status_code < 600
+        ):
+            msg = self.response_error_message(response)
+            raise RetriableAPIError(msg, response)
+        elif 400 <= response.status_code < 500:
+            msg = self.response_error_message(response)
+            raise FatalAPIError(msg)
 
     def backoff_wait_generator(self) -> Callable[..., Generator[int, Any, None]]:
         return backoff.constant(interval=10)  # type: ignore # ignore 'Returning Any'
